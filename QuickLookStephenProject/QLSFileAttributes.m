@@ -52,6 +52,10 @@
 
 + (NSString *)magicStringForItemAtURL:(NSURL *)aURL
 {
+  if ([aURL.lastPathComponent isEqualToString:@".DS_Store"]) {
+    NSLog(@"Ignore the .DS_Store file.");
+      return nil;
+  }
   NSString *path = [aURL path];
   NSParameterAssert(path);
 
